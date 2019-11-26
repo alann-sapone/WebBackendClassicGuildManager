@@ -6,7 +6,7 @@ services:
     ports:
       - '8000:8000'
     volumes:
-      - '.:/app'
+      - '.:/webapp'
     environment:
       - SYMFONY_PROJECT_NAME=webapp
       - MARIADB_HOST=mariadb

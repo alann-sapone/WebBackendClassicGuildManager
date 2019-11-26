@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  webapp:
+    image: 'bitnami/symfony:1'
+    ports:
+      - '8000:8000'
+    volumes:
+      - '.:/app'
+    environment:
+      - SYMFONY_PROJECT_NAME=webapp
+      - MARIADB_HOST=mariadb
+      - MARIADB_PORT_NUMBER=3306
+      - MARIADB_USER=wbecgmunoftd
+      - MARIADB_PASSWORD=wbecgmunoftd123456yoyo
+      - MARIADB_DATABASE=webapp
+    depends_on:
+      - mariadb
+      
+  mariadb:
+    image: 'bitnami/mariadb:10.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=wbecgmunoftd
+      - MARIADB_PASSWORD=wbecgmunoftd123456yoyo
+      - MARIADB_DATABASE=webapp
